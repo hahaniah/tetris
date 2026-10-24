@@ -1,90 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width", initial-scale="1.0"/>
-        <title>tetris</title>
-        <style>
-            * { margine: 0; padding: 0; box-sizing: border-box;}
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>tetris</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-            body {
-                background: #1a1a2e;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                height: 100vh;
-                font-family: monospace;
-                color: #fff;
-            }
+    body {
+      background: #1a1a2e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: monospace;
+      color: #fff;
+    }
 
-            .game-wrap {
-                display: flex;
-                gap:2rem;
-                align-items: flex-start;
-            }
+    .game-wrap {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      padding-top: 2rem;
+    }
 
-            canvas { 
-                border: 2px solid #444;
-                display: block;
-            }
-            .sidebar {
-                display:flex;
-                flex-direction: column;
-                gap: 1.5rem;
-                min-width: 120px;
-            }
+    canvas {
+      border: 2px solid #444;
+      display: block;
+    }
 
-            .sidebar h1 {
-                font-size: 1.4rem;
-                letter-spacing: 0.1em;
-                color: #e0aaff;
-            }
-            .label {
-                font-size: 0.7rem;
-                text-transform: uppercase;
-                letter-spacing: 0.15rem;
-                color: #888;
-                margin-bottom: 0.3rem;
-            }
-            .score-val {
-            font-size: 1.6rem;
-            color: #fff;
-        
-            }
-            #next-canvas {
-                border: 1px solid #333;
-            }
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      min-width: 120px;
+    }
 
-            .btn {
-                background: #e0aaff;
-                color: #1a1a2e;
-                border: none;
-                padding: 0.6rem 1rem;
-                font-family: monospace;
-                font-size: 0.85rem;
-                cursor: pointer;
-                border-radius: 4px;
-                font-weight: bold;
-                letter-spacing: 0.05rem;
-            }
-            .btn:hover {opacity: 0.85;}
+    .sidebar h1 {
+      font-size: 1.4rem;
+      letter-spacing: 0.1em;
+      color: #e0aaff;
+    }
 
-            #game-over {
-                display: none;
-                position: fixed;
-                inset: 0;
-                background: rgba(0,0,0,0.75);
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                gap: 1rem;
-                font-size: 1.2rem;
+    .label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #888;
+      margin-bottom: 0.3rem;
+    }
 
+    .score-val {
+      font-size: 1.6rem;
+      color: #fff;
+    }
 
-            }
-            #game-over.show { display: flex;}
-            #game-over h2 { color: #e0aaff; font-size: 2rem;}
-           </style> 
+    #next-canvas {
+      border: 1px solid #333;
+    }
 
-    </head>
+    .btn {
+      background: #e0aaff;
+      color: #1a1a2e;
+      border: none;
+      padding: 0.6rem 1rem;
+      font-family: monospace;
+      font-size: 0.85rem;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+    }
+
+    .btn:hover { opacity: 0.85; }
+
+    #game-over {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1rem;
+      font-size: 1.2rem;
+    }
+
+    #game-over.show { display: flex; }
+    #game-over h2 { color: #e0aaff; font-size: 2rem; }
+  </style>
+</head>
+<body>
+
+  <div class="game-wrap">
+    <canvas id="board" width="300" height="600"></canvas>
+
+    <div class="sidebar">
+      <h1>tetris</h1>
+
+      <div>
+        <p class="label">score</p>
+        <p class="score-val" id="score">0</p>
+      </div>
+
+      <div>
+        <p class="label">level</p>
+        <p class="score-val" id="level">1</p>
+      </div>
+
+      <div>
+        <p class="label">next</p>
+        <canvas id="next-canvas" width="100" height="100"></canvas>
+      </div>
+
+      <button class="btn" id="start-btn">start</button>
+      <button class="btn" id="pause-btn">pause</button>
+    </div>
+  </div>
+
+  <div id="game-over">
+    <h2>game over</h2>
+    <p id="final-score"></p>
+    <button class="btn" onclick="restartGame()">play again</button>
+  </div>
+
+  <script src="tetris.js"></script>
+</body>
 </html>
