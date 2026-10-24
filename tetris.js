@@ -5,7 +5,7 @@ const nextCtx = nextCanvas.getContext('2d');
 
 const COLS = 10;
 const ROWS = 20;
-const BLOCK = 30;
+const BLOCK = 24;
 
 const PIECES = [
   { shape: [[1,1,1,1]], img: 'block-i.png' },
