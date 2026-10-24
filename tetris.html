@@ -46,13 +46,13 @@
       font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 0.15em;
-      color: #888;
+      color: #9b5de5;
       margin-bottom: 0.3rem;
     }
 
     .score-val {
       font-size: 1.6rem;
-      color: #fff;
+      color: #f4743b;
     }
 
     #next-canvas {
@@ -60,8 +60,8 @@
     }
 
     .btn {
-      background: #e0aaff;
-      color: #1a1a2e;
+      background: #9b5de5;
+      color: #fff;
       border: none;
       padding: 0.6rem 1rem;
       font-family: monospace;
@@ -86,8 +86,12 @@
       font-size: 1.2rem;
     }
     .title-img {
-      width: 280px;
-      margin-bottom: 0.5rem;
+      position: fixed;
+      botton: 420px;
+      left:20px;
+      width: 600px;
+      pointer-events: none;
+      z-index; 2;
     }
     .char-img {
       position: fixed;
@@ -146,6 +150,7 @@
     <button class="btn" onclick="restartGame()">play again</button>
   </div>
 
+  <audio id="bg-music" src="bgmusic.mp3" loop></audio>
   <script src="tetris.js"></script>
 </body>
 </html>

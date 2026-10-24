@@ -201,6 +201,10 @@ function gameLoop(time) {
 }
 
 function startGame() {
+  var music = document.getElementById('bg-music');
+  music.currentTime = 0;
+  music.play ();
+
   initBoard();
   score = 0;
   level = 1;
@@ -224,7 +228,9 @@ function endGame() {
   gameRunning = false;
   document.getElementById('final-score').textContent = 'score: ' + score;
   document.getElementById('game-over').classList.add('show');
+  document.getElementById('bg-music').pause();
 }
+
 
 function restartGame() {
   startGame();
